@@ -45,6 +45,37 @@ public class CustomList extends ArrayAdapter<City> {
         provinceName.setText(city.getProvinceName());
 
         return view;
-
     }
+    public int getCount(){
+        return cities.size();
+    }
+
+    public void addCity(City city){
+        cities.add(city);
+        return;
+    }
+
+    public boolean hasCity(City city){
+        for(int i =0; i< cities.size();i++){
+            if(cities.get(i).getCityName().equals(city.getCityName())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void deleteCity(City city){
+        for(int i =0; i < cities.size();i++){
+           if(cities.get(i).getCityName().equals(city.getCityName())){
+               cities.remove(city);
+           }
+        }
+    }
+
+    public int countCities(CustomList cities){
+        return cities.getCount();
+    }
+
+
 }
+
